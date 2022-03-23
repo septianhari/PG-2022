@@ -1,3 +1,24 @@
+// Run when the webpage is loaded
+window.addEventListener('load', () => {
+  Swal.fire({
+    title: 'Apakah Anda yakin untuk memutar musik di latar belakang?',
+    // text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'No',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.querySelector('.song').play();
+      resolveFetch().then(animationTimeline());
+    } else {
+      resolveFetch().then(animationTimeline());
+    }
+  })
+})
+
 let nama, val;
 const url_string = document.URL;
 const url = new URL(url_string);
@@ -27,7 +48,7 @@ document.querySelector(".tombol").addEventListener('click', function () {
           showCancelButton: true,
           inputValidator: (value) => {
             if (!value) {
-              return 'Isi dulu bei :('
+              return 'Isi dulu Kak :('
             } else {
               nama = value;
             }
@@ -73,7 +94,7 @@ document.querySelector(".tombol").addEventListener('click', function () {
                         })
                       } else if (result.isDenied) {
                         Swal.fire(`Jahat banget emang ga Rindu sama ${sender}`, '', 'error').then(function () {
-                          Swal.fire('Yaudah deh bey!')
+                          Swal.fire('Yaudah deh bye!')
                         })
                       }
                     }) 
@@ -82,7 +103,7 @@ document.querySelector(".tombol").addEventListener('click', function () {
               })
             } else if (result.isDenied) {
               Swal.fire(`Yakin ga Rindu sama ${sender}?`, '', 'error').then(function () {
-                Swal.fire('Yaudah deh bey!')
+                Swal.fire('Yaudah deh bye!')
               })
             }
           })
