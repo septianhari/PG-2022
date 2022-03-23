@@ -88,7 +88,7 @@ document.querySelector(".tombol").addEventListener('click', function () {
                       /* Read more about isConfirmed, isDenied below */
                       if (result.isConfirmed) {
                         Swal.fire(`kalau mau nonton jaga stamina yaa!, ${sender} juga sayang kamu, ${nama} Sukses dan sehat selalu ya kamu :((`).then(function () {
-                          Swal.fire('Terakhir bei').then(function () {
+                          Swal.fire('Terakhir Kak').then(function () {
                             Swal.fire('Coba klik ikon hati di paling bawah dong')
                           })
                         })
